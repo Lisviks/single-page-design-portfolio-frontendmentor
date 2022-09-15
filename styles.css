@@ -8,6 +8,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #fff7f0;
 }
 
 h1,
@@ -126,7 +127,7 @@ header p {
   right: 24px;
 }
 
-.grid-item p {
+.grid-item span {
   position: absolute;
   bottom: 24px;
   left: 24px;
@@ -222,4 +223,168 @@ footer p {
 
 .bottom {
   margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 14px 45px;
+    background-color: #eb7565;
+  }
+
+  .top .btn,
+  .bottom .btn {
+    background-color: #030303;
+  }
+
+  header {
+    padding: 34px 40px 0;
+    max-width: 850px;
+    width: 768px;
+    margin: 0 auto;
+  }
+
+  .top .logo,
+  .bottom .logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  header h1 {
+    margin-top: 64px;
+    font-size: 44px;
+    line-height: 55px;
+  }
+
+  header p {
+    margin-top: 27px;
+    padding: 0 50px;
+  }
+
+  .grid {
+    margin-top: 64px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 182px 158px 182px;
+    gap: 24px 23px;
+  }
+
+  .grid-item.graphic-design,
+  .grid-item.photography {
+    grid-column: 1 / 3;
+  }
+
+  .grid-item.graphic-design {
+    background-color: #755cde;
+    grid-row: 1 / 3;
+  }
+
+  .grid-item.illustrations {
+    grid-column: 3 / 5;
+  }
+
+  .grid-item.ui-ux {
+    background-color: #f6a560;
+  }
+
+  .grid-item.apps {
+    background-color: #f39e9e;
+  }
+
+  .grid-item.illustrations {
+    background-color: #eb7565;
+  }
+
+  .grid-item.photography {
+    background-color: #61c4b7;
+  }
+
+  .grid-item.motion-graphics {
+    background-color: #552049;
+    grid-column: 3 / 5;
+  }
+
+  .grid-item .pattern {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+
+  main {
+    margin: 120px auto 0;
+    padding: 0;
+    max-width: 850px;
+    width: 768px;
+  }
+
+  main .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+    position: relative;
+  }
+
+  main .info .photo {
+    width: 364px;
+    margin: 0 auto;
+    position: absolute;
+    right: 408px;
+  }
+
+  main .info h2 {
+    margin-top: 0;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: left;
+  }
+
+  main .info p {
+    text-align: left;
+  }
+
+  main .info .btn {
+    margin: 24px 0 0;
+  }
+
+  main .info .content {
+    width: 339px;
+  }
+
+  main .work {
+    margin-top: 120px;
+    margin-bottom: 56px;
+  }
+
+  main .work h3 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  main .work .slider {
+  }
+
+  main .work .slider-btns {
+    margin-top: 56px;
+  }
+
+  footer {
+    margin: 120px auto 56px;
+    max-width: 850px;
+    width: 768px;
+    padding: 0 39px;
+  }
+
+  footer .info {
+    padding: 56px 75px 64px;
+  }
+
+  .bottom {
+    margin-top: 56px;
+  }
 }
