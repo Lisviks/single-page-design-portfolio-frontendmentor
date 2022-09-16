@@ -177,7 +177,6 @@ main .info .photo img {
 main .work {
   margin-top: 100px;
   overflow: hidden;
-  border: 1px solid red;
 }
 
 main .work h3 {
@@ -412,6 +411,12 @@ footer p {
     padding: 0 200px;
   }
 
+  header .btn:hover,
+  footer .bottom .btn:hover {
+    cursor: pointer;
+    background-color: #755cde;
+  }
+
   .grid {
     margin-top: 80px;
     grid-template-columns: repeat(6, 1fr);
@@ -466,6 +471,12 @@ footer p {
 
   main .info .btn {
     margin: 32px 0 0;
+  }
+
+  main .info .btn:hover,
+  footer .info .btn:hover {
+    cursor: pointer;
+    background-color: #f6a560;
   }
 
   main .info .content {
