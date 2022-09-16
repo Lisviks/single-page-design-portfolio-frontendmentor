@@ -148,6 +148,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 main .info .photo {
@@ -175,14 +176,36 @@ main .info .photo img {
 
 main .work {
   margin-top: 100px;
+  overflow: hidden;
+  border: 1px solid red;
 }
 
 main .work h3 {
   font-size: 24px;
   line-height: 30px;
+  margin-bottom: 32px;
 }
 
 main .work .slider {
+  display: flex;
+  width: 1410px;
+  transition: all 0.3s ease;
+}
+
+main .work .slider .image {
+  width: 270px;
+  height: 180px;
+  margin-right: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+main .work .slider .image:last-child {
+  margin: 0;
+}
+
+main .work .slider .image img {
+  width: 100%;
 }
 
 main .work .slider-btns {
@@ -303,6 +326,7 @@ footer p {
     align-items: center;
     margin-right: 40px;
     position: relative;
+    text-align: left;
   }
 
   main .info .photo {
@@ -341,6 +365,13 @@ footer p {
   }
 
   main .work .slider {
+    width: 2820px;
+  }
+
+  main .work .slider .image {
+    width: 540px;
+    height: 360px;
+    margin-right: 30px;
   }
 
   main .work .slider-btns {
@@ -445,10 +476,6 @@ footer p {
     margin-top: 88px;
   }
 
-  main .work .slider {
-  }
-
-  /* NOT FINISHED */
   footer {
     margin: 88px auto 64px;
     max-width: 1110px;
