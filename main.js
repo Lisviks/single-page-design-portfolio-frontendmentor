@@ -4,51 +4,44 @@ const rightBtn = document.querySelector('.right');
 const workElement = document.querySelector('.work');
 const images = document.querySelectorAll('.slider .image');
 
-const getInitialLeftMargin = () => {
-  const workElementWidth = getComputedStyle(workElement).width;
-  const workElementWidthNumber = +workElementWidth.split('px')[0];
-
-  const imageWidth = getComputedStyle(images[0]).width;
-  const imageElementNumber = +imageWidth.split('px')[0];
-
-  const leftMargin = workElementWidthNumber / 2 - imageElementNumber / 2;
-
-  return leftMargin;
+const getWidth = (element) => {
+  const width = Number(getComputedStyle(element).width.split('px')[0]);
+  return width;
 };
 
-const getMoveAmount = () => {
-  const imageRightMargin = getComputedStyle(images[0]).marginRight;
+const getMoveAmount = (image, imageWidth) => {
+  const imageRightMargin = getComputedStyle(image).marginRight;
   const imageRightMarginNumber = +imageRightMargin.split('px')[0];
 
-  const imageWidth = getComputedStyle(images[0]).width;
-  const imageElementNumber = +imageWidth.split('px')[0];
-
-  return imageRightMarginNumber + imageElementNumber;
+  return imageRightMarginNumber + imageWidth;
 };
 
-const initialMargin = getInitialLeftMargin();
-let margin = getInitialLeftMargin();
-let currentImage = 1;
+const initSlider = () => {
+  let currentImage = Math.ceil(images.length / 2);
 
-const setInitialSliderMargin = () => {
-  sliderElement.style.marginLeft = `${margin}px`;
+  const imageWidth = getWidth(images[0]);
+  const moveAmount = getMoveAmount(images[0], imageWidth);
+  const initialLeftMargin = getWidth(workElement) / 2 - imageWidth / 2 - moveAmount * (currentImage - 1);
+
+  sliderElement.style.marginLeft = `${initialLeftMargin}px`;
+
+  let margin = initialLeftMargin;
+
+  leftBtn.addEventListener('click', () => {
+    if (currentImage === 1) return;
+    currentImage--;
+    margin += getMoveAmount(images[0], imageWidth);
+    sliderElement.style.marginLeft = `${margin}px`;
+    return;
+  });
+
+  rightBtn.addEventListener('click', () => {
+    const totalImages = images.length;
+    if (currentImage >= totalImages) return;
+    currentImage++;
+    margin -= getMoveAmount(images[0], imageWidth);
+    sliderElement.style.marginLeft = `${margin}px`;
+  });
 };
 
-setInitialSliderMargin();
-
-leftBtn.addEventListener('click', () => {
-  if (margin === initialMargin) return;
-  currentImage--;
-  margin += getMoveAmount();
-  sliderElement.style.marginLeft = `${margin}px`;
-  console.log(currentImage);
-});
-
-rightBtn.addEventListener('click', () => {
-  const totalImages = images.length;
-  if (currentImage >= totalImages) return;
-  currentImage++;
-  margin -= getMoveAmount();
-  sliderElement.style.marginLeft = `${margin}px`;
-  console.log(currentImage);
-});
+initSlider();
