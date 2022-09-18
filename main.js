@@ -27,20 +27,33 @@ const initSlider = () => {
 
   let margin = initialLeftMargin;
 
-  leftBtn.addEventListener('click', () => {
+  const moveLeft = () => {
     if (currentImage === 1) return;
     currentImage--;
     margin += getMoveAmount(images[0], imageWidth);
     sliderElement.style.marginLeft = `${margin}px`;
-    return;
-  });
+  };
 
-  rightBtn.addEventListener('click', () => {
+  const moveRight = () => {
     const totalImages = images.length;
     if (currentImage >= totalImages) return;
     currentImage++;
     margin -= getMoveAmount(images[0], imageWidth);
     sliderElement.style.marginLeft = `${margin}px`;
+  };
+
+  leftBtn.addEventListener('click', () => {
+    moveLeft();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    moveRight();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    const key = e.key;
+    if (key === 'ArrowLeft') moveLeft();
+    if (key === 'ArrowRight') moveRight();
   });
 };
 
